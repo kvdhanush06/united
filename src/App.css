@@ -1,38 +1,135 @@
-.App {
-  text-align: center;
+body {
+    background-image: url(background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif; /* Apply a default font to the entire page */
+    color: #fff;                  /* Default text color to white for contrast */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    z-index: 1000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-left {
+    margin-left: 200px;
+    background-image: linear-gradient(to right,rgb(247, 43, 77),#4d4dfce4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-right: 300px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    min-height: 100vh; /* Ensure the container takes up full viewport height */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login {
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.signup {
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.image-container {
+    margin-right: 400px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Form Container Styling */
+.form-container {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Center the text within the form */
+}
+
+.lr-heading {
+    color: white;
+    margin-bottom: 20px; /* Add some spacing below the heading */
+}
+
+.form input {
+    width: 100%; /* Make inputs take full available width */
+    padding: 10px;
+    margin: 10px 0; /* Spacing above and below inputs */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.form button.lr-button {
+    width: 100%; /* Make buttons take full available width */
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.form button.lr-button:hover {
+    background-color: #0056b3;
+}
+
+.lr-changing {
+    color: white;
+    margin-top: 20px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none; /* Remove default underline for link */
+}
+
+.toggle-btn:hover {
+    text-decoration: underline;
 }

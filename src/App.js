@@ -4,13 +4,15 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PostTournament from "./components/PostTournament";
 import Signup from "./components/Signup";
 import ViewTournaments from "./components/ViewTournaments";
-import LoginRegister from './components/LoginRegister';
+import Login from './components/Login';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={ <LoginRegister /> } />
+        <Route path="/" element={< HomePage />} />
+        <Route path="/login" element={ <Login /> } />
         <Route path="/signup" element={<Signup />} />
         <Route path="/post" element={<PostTournament />} />
         <Route path="/view-tournaments" element={<ViewTournaments />} />
