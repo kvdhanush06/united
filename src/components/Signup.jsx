@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, googleProvider } from "../firebase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -8,8 +8,7 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleSignup = async (e) => {
-    e.preventDefault();
+  const handleSignup = async () => {
     setError("");
     setSuccess("");
 
@@ -23,12 +22,21 @@ const Signup = () => {
     }
   };
 
+  const signUpWithGoogle = async() => {
+    try {
+      await signInWithPopup(auth,googleProvider)
+      setSuccess("Signed in with google")
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <div style={{ maxWidth: "400px", margin: "auto", textAlign: "center" }}>
       <h2>Sign Up</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {success && <p style={{ color: "green" }}>{success}</p>}
-      <form onSubmit={handleSignup}>
+      <form >
         <input
           type="email"
           placeholder="Email"
@@ -56,7 +64,7 @@ const Signup = () => {
           }}
         />
         <button
-          type="submit"
+          onClick={handleSignup}
           style={{
             backgroundColor: "#007BFF",
             color: "white",
@@ -66,6 +74,18 @@ const Signup = () => {
           }}
         >
           Sign Up
+        </button>
+        <button
+          onClick={signUpWithGoogle}
+          style={{
+            backgroundColor: "#007BFF",
+            color: "white",
+            padding: "10px 20px",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          Sign Up With Google
         </button>
       </form>
     </div>
