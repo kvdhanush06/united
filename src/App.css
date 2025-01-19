@@ -1,106 +1,650 @@
-body {
+html,body {
+    height: 100vh;
     background-image: url(background.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
     padding: 0;
-    font-family: 'Arial', sans-serif; /* Apply a default font to the entire page */
-    color: #fff;                  /* Default text color to white for contrast */
 }
-
+ 
+.container {
+    font-family: sans-serif;
+}
+ 
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100%; 
     background: transparent;
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
-    z-index: 1000;
+    padding: 10px 40px; 
+    z-index: 1000; 
 }
-
+ 
 .nav-left {
-    margin-left: 200px;
     background-image: linear-gradient(to right,rgb(247, 43, 77),#4d4dfce4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 50px;
 }
-
+ 
 .nav-right {
-    display: flex;
+    display: flex; 
     align-items: center;
     margin-right: 300px;
 }
-
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
-    min-height: 100vh; /* Ensure the container takes up full viewport height */
+.tournament,.home
+{
+    margin-right: 15px;
 }
-
-.login {
+.login , .tournament,.home {
     text-decoration: none;
     font-size: 30px;
+    opacity: 0.7;
     color: white;
     background: none;
     outline: none;
     border: none;
-    cursor: pointer;
+    cursor: pointer; 
 }
-
+ 
+.login:hover , .tournament:hover{
+    opacity: 1;
+}
+ 
 .signup {
     text-decoration: none;
+    border-radius: 5px;
     font-size: 30px;
-    color: white;
-    background: none;
-    outline: none;
+    background: linear-gradient(to right,rgb(247, 43, 77),#4d4dfce4);
+    padding: 10px 20px; 
     border: none;
+    cursor: pointer; 
+    color: black; 
+}
+ 
+.signup:hover {
+    box-shadow: 0 0 10px plum;
+}
+ 
+.main
+{
+    height: 100%;
+    margin-top: 200px;
+}
+.main_h1 {
+    background-image: linear-gradient(to right,rgb(247, 43, 77),#4d4dfce4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 90px;
+    font-weight: bold;
+    animation: toRight 1s linear; 
+}
+.main_para {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+    padding: 20px;
+    color: white; 
+    font-size: 30px;
+    line-height: 1.6;
+    text-align: justify; 
+    border-radius: 10px; 
+    opacity: 1;
+    animation: toRight 1s linear;
+}
+.main-su {
+    padding: 20px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to right,rgb(247, 43, 77),#4d4dfce4);
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    animation: toRight 1s linear;
+}
+ 
+.main-su .arrow {
+    margin-left: 10px;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+ 
+.main-su:hover {
+    background-color: #572a8a; 
+    box-shadow: 0 0 15px rgba(87, 42, 138, 0.8); 
+}
+ 
+.main-su:hover .arrow {
+    transform: translateX(5px);
 }
 
-.image-container {
-    margin-right: 400px;
-    flex: 1;
+#main-btn-wrapper{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+ 
+@keyframes toRight{
+    from{
+        transform: translateX(-500px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+ /*Games*/
+.games
+{
+    color: white;
+}
+.freefire
+{
+    position: relative;
+}
+.valorant
+{
+    position: relative;
+}
+.eldenring
+{
+    position: relative;
+}
+.witcher
+{
+    position: relative;
+}
+.ff-button {
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: blue;
+    cursor: pointer;
+    color: white;
+    width: 100px;
+    position: absolute;
+    transform: translateX(-120px) translateY(210px); 
+}
+.ff-button:hover
+{
+    background-color: #5050f6;
+}
+.valorant-button
+{
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: blue;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    transform: translateX(-120px) translateY(210px);
+}
+.valorant-button:hover
+{
+    background-color: #5050f6;
+}
+.elden-ring-button
+{
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: blue;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    transform: translateX(-120px) translateY(210px);
+}
+.elden-ring-button:hover
+{
+    background-color: #5050f6;
+}
+.witcher-button
+{
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: blue;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    transform: translateX(-120px) translateY(210px);
+}
+.witcher-button:hover
+{
+    background-color: #5050f6;
+}
+.all-games
+{
+    display: grid;
+    grid-template-columns: repeat(2, 0.09fr);
+    gap: 30px;
+    justify-content: center;
+}
+.Games-heading
+{
+    color: white;
+    opacity: 1;
+    text-align: center;
+    font-size: 60px;
+    animation: toUp 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.ff-image
+{
+    width: 450px;
+    height: auto;
+}
+.ff-image:hover
+{
+    filter: contrast(200%);
+}
+.valorant-image
+{
+    width: 450px;
+    height: auto;
+}
+.valorant-image:hover
+{
+    filter: contrast(200%);
+}
+.elden-ring-image
+{
+    width: 450px;
+    height: auto;
+}
+.elden-ring-image:hover
+{
+    filter: contrast(200%);
+}
+.witcher-image
+{
+    width: 450px;
+    height: auto;
+}
+.witcher-image:hover
+{
+    filter: contrast(200%);
+}
+.free_fire,
+.valorant,
+.elden-ring,
+.witcher{
+    animation: toUp 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+@keyframes toUp {
+    from {
+        opacity: 0;
+        transform: translateY(400px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px); 
+    }
+}
+.ffooter
+{
+    animation: toUp 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 10%;
+    background-color: black;
+}
+html {
+    scroll-behavior: smooth;
+}
+.footer_elements
+{
+    text-decoration: none;
+    color: white;
+}
+.h4heading
+{
+    color: white;
+}
+.all-elements
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.ffooter {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    text-align: left;
+}
+
+.all-elements {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact, .p0licy, .company {
+    width: 30%;
+}
+
+.h4heading {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.social-media-heading
+{
+    font-size: 30px;
+}
+.footer_elements {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer_elements:hover {
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.contact_ul {
+    margin-top: 10px;
+}
+
+.contact_ul li {
+    margin-bottom: 10px;
+}
+.contact_ul a
+{
+    padding-right: 20px;
+}
+.contact_ul a , .policy_ul a {
+    font-size: 20px;
+}
+.policy_ul a{
+    font-size: 20px;
+}
+.social-media {
+    width: 30%;
+    text-align: center;
+}
+
+.social-media .h4heading {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.social-media ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.social-media li {
+    margin: 0 10px;
+}
+
+.social-icon {
+    font-size: 40px; 
+    color: #bbb; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #fff; 
+}
+
+.ffooter {
+    padding: 40px 0;
+    background-color: #333;
+    color: white;
+    text-align: left;
+}
+
+.all-elements {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer .footer_elements:hover {
+    color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+    .all-elements {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact, .p0licy, .company {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+ /*forms*/
+ .forms {
+     left: 50%;/* Center align the form */
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     animation: toUp 5s linear;
+     animation-timeline: view();
+     animation-range: entry 0% cover 40%;
+ }
+ 
+ .contact_heading {
+     font-size: 60px;
+     color: white;
+     text-align: center;
+     margin-bottom: 20px;
+     font-weight: bold;
+     font-family: 'Arial', sans-serif;
+ }
+ 
+ .contact-form {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff; /* White form background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Arial', sans-serif;
+ }
+ 
+ .contact-form label {
+     font-size: 1rem;
+     font-weight: bold;
+     color: #555; /* Slightly darker text for better readability */
+     margin-bottom: 8px;
+     display: block;
+ }
+ 
+ .contact-form input,
+ .contact-form textarea {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 15px;
+     border: 1px solid #ccc; /* Light gray border */
+     border-radius: 5px;
+     font-size: 1rem;
+     color: #333; /* Dark text for inputs */
+     background-color: #f9f9f9; /* Light input background */
+     box-sizing: border-box;
+     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+ }
+ 
+ .contact-form input:focus,
+ .contact-form textarea:focus {
+     border-color: #007bff; /* Blue border on focus */
+     box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+     outline: none;
+ }
+ 
+ .contact-form textarea {
+     resize: none; /* Prevent resizing */
+     height: 120px; /* Default height for textarea */
+ }
+ 
+ .contact-form .submit-button {
+     display: inline-block;
+     background-color: #007bff; /* Primary blue color */
+     color: #fff; /* White text */
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     font-size: 1rem;
+     cursor: pointer;
+     text-align: center;
+     transition: background-color 0.3s ease, transform 0.2s ease;
+ }
+ 
+ .contact-form .submit-button:hover {
+     background-color: #0056b3; /* Darker blue on hover */
+     transform: scale(1.05); /* Slight zoom effect */
+ }
+ 
+ .contact-form .submit-button:active {
+     transform: scale(1); /* Reset zoom on click */
+     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Subtle click effect */
+ }
+ 
+ 
+ /* Global Styles */
+ .fullform {
+     background-image: url(background.png);
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
+     font-family: Arial, sans-serif;
+     color: #fff;
+     margin: 0;
+     padding: 0;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     /* background: linear-gradient(to right, red 45%, rgba(1, 1, 59, 0.738) 45%, red 55%); */
+ }
+ 
+ /* Container for Left (Image) and Right (Form) Sections */
+ .ccontainer {
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 90%;
+     max-width: 1200px;
+     height: 80%;
+ }
+ 
+ /* Image Container (Left Side) */
+ .image-container {
+     margin-right: 400px;
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 10px;
+ }
+ 
+ .controller-img {
+     margin-left: 100px;
+     z-index: 2;
+     width: 1000px;
+     height: auto;
+     margin-bottom: 20px;
+     animation: popup 2s forwards;
+ }
+ 
+ .login-img {
+     width: 700px;
+     z-index: 0;
+     position: absolute;
+     max-width: 80%;
+     height: auto;
+ }
+ 
+ /* Form Container (Right Side) */
+ .form-container {
+    /* position: absolute; */
+    height: 100vh;
+    z-index: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-}
-
-/* Form Container Styling */
-.form-container {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    text-align: center; /* Center the text within the form */
-}
-
-.lr-heading {
-    color: white;
-    margin-bottom: 20px; /* Add some spacing below the heading */
+    transition: transform 0.3s ease-in-out;
+ }
+ 
+ /* Form Styles for login */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form input {
-    width: 100%; /* Make inputs take full available width */
+    width: 400px;
     padding: 10px;
-    margin: 10px 0; /* Spacing above and below inputs */
     border-radius: 5px;
     border: 1px solid #ddd;
     font-size: 16px;
 }
 
+.submit-btn-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
 .form button.lr-button {
-    width: 100%; /* Make buttons take full available width */
+    width: 100px;
     padding: 10px;
     background-color: #007bff;
     color: white;
@@ -109,16 +653,15 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
 .form button.lr-button:hover {
     background-color: #0056b3;
 }
 
-.lr-changing {
-    color: white;
-    margin-top: 20px;
+.form p {
+    font-size: 14px;
+    color: #ddd;
 }
 
 .toggle-btn {
@@ -127,9 +670,146 @@ body {
     color: #007bff;
     cursor: pointer;
     font-weight: bold;
-    text-decoration: none; /* Remove default underline for link */
 }
 
 .toggle-btn:hover {
     text-decoration: underline;
+}
+
+/* Show the login or register form */
+#login-btn-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+#login-form {
+    border-radius: 5px;
+    font-size: 30px;
+    background: linear-gradient(to right, rgb(247, 43, 77), #4d4dfce4);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    color: black;
+    display: flex;
+}
+
+#register-form {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: 90%;
+    }
+
+    .image-container, .form-container {
+        width: 100%;
+        height: auto;
+    }
+}
+.lr-heading
+{
+    color: white;
+}
+.lr-changing
+{
+    margin-top: 2.75rem;
+}
+
+@keyframes popup {
+    to{
+        transform: scale(1.1);
+    }
+    
+}
+@keyframes fromdowntoUP {
+    from{
+        transform: scale(0.90);
+    }
+    
+}
+
+/* Create Tournament */
+.tournament_heading
+{
+    color: white;
+    font-size: 40px;
+}
+.tournament_body {
+background-image: url(BACKGROUND-IMAGE-FOR-TOURNAMNET.jpg);
+    background-position: center;
+    background-size: cover;    
+    color: white;
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.tournamnet_container {
+    background: rgba(85, 85, 85, 0.5); /* Semi-transparent grey */
+    backdrop-filter: blur(30px); /* Apply the blur effect */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow for a lifted look */
+    max-width: 600px;
+    width: 90%; 
+    margin: 0 auto;
+    animation: fromdowntoUP 2s forwards;
+}
+
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.tournamnet_container form {
+
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.tournamnet_container form textarea
+{
+    color: black;
+}
+.tournamnet_container label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.tournamnet_container  input, select, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.Create-tournamnet-button
+{
+    border-radius: 3px;
+margin-left: 200px;
+    color: white;
+    padding: 10px 5px;
+    width: 200px;
+    background-color: hsl(240, 99%, 63%);
+}
+
+.tournamnet_container  button:hover {
+    background: #0056b3;
+}
+.tournament-submit-button1{
+    background-color: hsl(240, 99%, 63%);
+    color: white;
+
+}
+.tournament-submit-button
+{
+    padding-left: 300px;
 }

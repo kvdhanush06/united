@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   return (
     <div className="container">
       <nav className="navbar">
         <div className="nav-left">
-          <span style={{ fontWeight: 'bold', fontFamily: 'sans-serif' }}>UNI</span>TED
+          <span>UNI</span>TED
         </div>
         <div className="nav-right">
-          <a href="login.html" className="login">Login</a>
-          <a className="signup" href="login.html">Sign Up</a>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
         </div>
       </nav>
 
@@ -21,7 +22,9 @@ export default function HomePage() {
           <span style={{ opacity: 0.5 }}>We handle registrations, payments, sponsorships, brackets, and score
             updates, so you can focus on delivering the best competitive gaming experience.</span>
         </p>
-        <button className="main-su">Sign Up at No Cost <span className="arrow">&#8594</span></button>
+        <div id='main-btn-wrapper'>
+          <button className="main-su">Sign Up at No Cost <span className="arrow">➡️</span></button>
+        </div>
       </main>
 
       <div className="games">
@@ -29,7 +32,7 @@ export default function HomePage() {
         <br /><br />
         <div className="all-games">
           <div className="free_fire">
-            <img className="ff-image" src="free-fire.jpg" alt="" />
+            <img className="ff-image" src="freefire.jpg" alt="" />
             <button className="ff-button">know more &#8594</button>
           </div>
           <div className="valorant">
@@ -37,11 +40,11 @@ export default function HomePage() {
             <button className="valorant-button">know more &#8594</button>
           </div>
           <div className="elden-ring">
-            <img className="elden-ring-image" src="elden-ring.jpg" alt="" />
+            <img className="elden-ring-image" src="witcher.jpg" alt="" />
             <button className="elden-ring-button">know more &#8594</button>
           </div>
           <div className="witcher">
-            <img className="witcher-image" src="withcher.jpeg" alt="" />
+            <img className="witcher-image" src="eldenring.jpg" alt="" />
             <button className="witcher-button">know more &#8594</button>
           </div>
         </div>

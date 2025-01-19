@@ -42,6 +42,7 @@ const Login = () => {
             <form onSubmit={handleLogin}>
               <input
                 type="email"
+                autoFocus
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -58,13 +59,15 @@ const Login = () => {
               />
               <br />
               <br />
-              <button type="submit" className="lr-button">
-                Login with Email
-              </button>
+              <div id="login-btn-wrapper">
+                <button type="submit" className="lr-button">
+                  Login with Email
+                </button>
+                <button onClick={handleGoogleLogin} className="lr-button">
+                  Login with Google
+                </button>
+              </div>
             </form>
-            <button onClick={handleGoogleLogin} className="lr-button">
-              Login with Google
-            </button>
             <p className="lr-changing">
               Don't have an account?{" "}
               <Link to="/signup" className="toggle-btn">
