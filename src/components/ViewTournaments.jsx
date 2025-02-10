@@ -65,10 +65,13 @@ const ViewTournaments = () => {
           >
             <h3>{tournament.tournamentName}</h3>
             <p>{tournament.description}</p>
-            <p><strong>Game:</strong> {tournament.gameName}</p>
+            <p><strong>Game Name:</strong> {tournament.gameName}</p>
             <p><strong>Max Participants:</strong> {tournament.maxParticipants}</p>
-            <p><strong>Date:</strong> {tournament.tournamentTime}</p>
-            <p><strong>Type:</strong> {tournament.tournamentType}</p>
+            <p><strong>Tournament Date:</strong> {tournament.tournamentTime}</p>
+            <p><strong>Tournament Type:</strong> {tournament.tournamentType}</p>
+            <p><strong>Prize Pool:</strong> {tournament.prizePool}</p>
+            <p><strong>Entry Fee:</strong> {tournament.entryFee}</p>
+            <p><strong>Tournament Location:</strong> {tournament.location}</p>
             <button
               onClick={() => handleRegister(tournament.id)}
               style={{
