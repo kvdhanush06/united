@@ -6,8 +6,19 @@ import { useAuth } from "../AuthContext";
 const ViewTournaments = () => {
   const { user } = useAuth(); // Get authenticated user
   const [tournaments, setTournaments] = useState([]);
+  const [filteredTournaments, setFilteredTournaments] = useState([]);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filters, setFilters] = useState({
+    gameName: "",
+    location: "",
+    tournamentTime: "",
+    maxParticipants: "",
+    prizePool: "",
+    entryFee: "",
+    tournamentType: "",
+  });
 
   useEffect(() => {
     const fetchTournaments = async () => {
@@ -19,6 +30,7 @@ const ViewTournaments = () => {
           ...doc.data(),
         }));
         setTournaments(tournamentList);
+        setFilteredTournaments(tournamentList);
       } catch (err) {
         setError("Failed to load tournaments.");
         console.error(err);
@@ -27,6 +39,27 @@ const ViewTournaments = () => {
 
     fetchTournaments();
   }, []);
+
+  useEffect(() => {
+    const filterTournaments = () => {
+      let filtered = tournaments;
+      if (searchTerm) {
+        filtered = filtered.filter((tournament) =>
+          tournament.tournamentName?.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
+      Object.keys(filters).forEach((key) => {
+        if (filters[key]) {
+          filtered = filtered.filter((tournament) =>
+            tournament[key]?.toString().toLowerCase().includes(filters[key].toLowerCase())
+          );
+        }
+      });
+      setFilteredTournaments(filtered);
+    };
+
+    filterTournaments();
+  }, [searchTerm, filters, tournaments]);
 
   const handleRegister = async (tournamentId) => {
     if (!user) {
@@ -46,14 +79,87 @@ const ViewTournaments = () => {
     }
   };
 
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
+  };
+
   return (
     <div style={{ maxWidth: "600px", margin: "auto", textAlign: "center" }}>
       <h2>Available Tournaments</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {success && <p style={{ color: "green" }}>{success}</p>}
-      {tournaments.length === 0 && <p>No tournaments available right now.</p>}
+      <input
+        type="text"
+        placeholder="Search by Tournament Name"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ marginBottom: "10px", padding: "5px", width: "100%" }}
+      />
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <input
+          type="text"
+          name="gameName"
+          placeholder="Filter by Game Name"
+          value={filters.gameName}
+          onChange={handleFilterChange}
+          style={{ padding: "5px" }}
+        />
+        <input
+          type="text"
+          name="location"
+          placeholder="Filter by Location"
+          value={filters.location}
+          onChange={handleFilterChange}
+          style={{ padding: "5px" }}
+        />
+        <input
+          type="datetime-local"
+          name="tournamentTime"
+          placeholder="Filter by Tournament Time"
+          value={filters.tournamentTime}
+          onChange={handleFilterChange}
+          style={{ padding: "5px" }}
+        />
+        <input
+          type="number"
+          name="maxParticipants"
+          placeholder="Filter by Max Participants"
+          value={filters.maxParticipants}
+          onChange={handleFilterChange}
+          style={{ padding: "5px" }}
+        />
+        <input
+          type="number"
+          name="prizePool"
+          placeholder="Filter by Prize Pool"
+          value={filters.prizePool}
+          onChange={handleFilterChange}
+          style={{ padding: "5px" }}
+        />
+        <input
+          type="number"
+          name="entryFee"
+          placeholder="Filter by Entry Fee"
+          value={filters.entryFee}
+          onChange={handleFilterChange}
+          style={{ padding: "5px" }}
+        />
+        <input
+          type="text"
+          name="tournamentType"
+          placeholder="Filter by Tournament Type"
+          value={filters.tournamentType}
+          onChange={handleFilterChange}
+          style={{ padding: "5px" }}
+        />
+      </div>
+      {filteredTournaments.length === 0 && <p>No tournaments available right now.</p>}
       <ul style={{ listStyleType: "none", padding: 0 }}>
-        {tournaments.map((tournament) => (
+        {filteredTournaments.map((tournament) => (
           <li
             key={tournament.id}
             style={{
