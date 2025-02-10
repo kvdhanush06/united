@@ -1,4 +1,3 @@
-
 /* Base styles */
 :root {
     --color-purple: #bc13fe;
@@ -6,6 +5,10 @@
     --color-black: #000000;
     --color-white: #ffffff;
     --color-gray: #9ca3af;
+}
+
+.links {
+    text-decoration: none;
 }
 
 body {
