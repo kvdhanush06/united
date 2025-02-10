@@ -63,14 +63,12 @@ const ViewTournaments = () => {
               borderRadius: "5px",
             }}
           >
-            <h3>{tournament.name}</h3>
+            <h3>{tournament.tournamentName}</h3>
             <p>{tournament.description}</p>
-            <p>
-              <strong>Date:</strong> {tournament.date}
-            </p>
-            <p>
-              <strong>Location:</strong> {tournament.location}
-            </p>
+            <p><strong>Game:</strong> {tournament.gameName}</p>
+            <p><strong>Max Participants:</strong> {tournament.maxParticipants}</p>
+            <p><strong>Date:</strong> {tournament.tournamentTime}</p>
+            <p><strong>Type:</strong> {tournament.tournamentType}</p>
             <button
               onClick={() => handleRegister(tournament.id)}
               style={{

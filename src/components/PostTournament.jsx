@@ -3,8 +3,12 @@ import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
 const PostTournament = () => {
-  const [name, setName] = useState("");
+  const [tournamentName, setTournamentName] = useState("");
   const [description, setDescription] = useState("");
+  const [gameName, setGameName] = useState("");
+  const [maxParticipants, setMaxParticipants] = useState("");
+  const [tournamentTime, setTournamentTime] = useState("");
+  const [tournamentType, setTournamentType] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -13,11 +17,14 @@ const PostTournament = () => {
     setSuccess("");
     try {
       const docRef = await addDoc(collection(db, "tournaments"), {
-        name, // tournament name
+        tournamentName,
         description,
+        gameName,
+        maxParticipants,
+        tournamentTime,
+        tournamentType,
         createdAt: new Date(),
-        // game date and time
-        // entry fee
+        // creator user id
       });
       setSuccess("Tournament posted successfully!");
     } catch (error) {
@@ -32,13 +39,37 @@ const PostTournament = () => {
       <input
         type="text"
         placeholder="Tournament Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={tournamentName}
+        onChange={(e) => setTournamentName(e.target.value)}
       />
       <textarea
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Game"
+        value={gameName}
+        onChange={(e) => setGameName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Max Participants"
+        value={maxParticipants}
+        onChange={(e) => setMaxParticipants(e.target.value)}
+      />
+      <input
+        type="datetime-local"
+        placeholder="Tournament Time"
+        value={tournamentTime}
+        onChange={(e) => setTournamentTime(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Tournament Type"
+        value={tournamentType}
+        onChange={(e) => setTournamentType(e.target.value)}
       />
       <button onClick={handleSubmit}>Post Tournament</button>
     </div>
