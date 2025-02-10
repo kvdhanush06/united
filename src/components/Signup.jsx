@@ -10,8 +10,7 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleSignup = async (e) =>
-  {
+  const handleSignup = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
@@ -26,26 +25,18 @@ const Signup = () => {
     }
   };
 
-  const signUpWithGoogle = async() => {
+  const signUpWithGoogle = async () => {
     try {
-      await signInWithPopup(auth,googleProvider)
-      setSuccess("Signed in with google")
+      await signInWithPopup(auth, googleProvider);
+      setSuccess("Signed in with Google successfully!");
     } catch (error) {
-      console.error( error );
-      setError("An error occurred during Google signup.");
+      setError("Google Signup Error: " + error.message);
     }
-  }
+  };
 
   return (
     <div className="container">
-      
-      <Navbar></Navbar>
-
-      {/* Assuming you are using the same CSS classes */}
-      {/* <div className="image-container">
-          <img src="controller.png" alt="Controller" className="controller-img" />
-          <img src="o_login.png" alt="Login" className="login-img" />
-        </div> */}
+      <Navbar />
       <div className="form-container">
         <div className="form signup" id="signup-form">
           <h2 className="lr-heading">Sign Up</h2>
@@ -77,7 +68,7 @@ const Signup = () => {
               <button type="submit" className="lr-button">
                 Sign Up with Email
               </button>
-              <button onClick={signUpWithGoogle} className="lr-button">
+              <button type="button" onClick={signUpWithGoogle} className="lr-button">
                 Sign Up with Google
               </button>
             </div>

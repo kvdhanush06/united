@@ -5,8 +5,12 @@ import { collection, addDoc } from "firebase/firestore";
 const PostTournament = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleSubmit = async () => {
+    setError("");
+    setSuccess("");
     try {
       const docRef = await addDoc(collection(db, "tournaments"), {
         name, // tournament name
@@ -15,14 +19,16 @@ const PostTournament = () => {
         // game date and time
         // entry fee
       });
-      alert("Tournament posted!");
+      setSuccess("Tournament posted successfully!");
     } catch (error) {
-      console.error("Error adding tournament:", error.message);
+      setError("Error adding tournament: " + error.message);
     }
   };
 
   return (
     <div>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {success && <p style={{ color: "green" }}>{success}</p>}
       <input
         type="text"
         placeholder="Tournament Name"

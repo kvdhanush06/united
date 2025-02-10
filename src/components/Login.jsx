@@ -7,41 +7,41 @@ import Navbar from "./Navbar";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Logged in successfully!");
+      setSuccess("Logged in successfully!");
     } catch (error) {
-      console.error("Login Error:", error.message);
+      setError("Login Error: " + error.message);
     }
   };
 
   const handleGoogleLogin = async () => {
+    setError("");
+    setSuccess("");
     try {
       await signInWithPopup(auth, googleProvider);
-      alert("Logged in with Google successfully!");
+      setSuccess("Logged in with Google successfully!");
     } catch (error) {
-      console.error("Google Login Error:", error.message);
+      setError("Google Login Error: " + error.message);
     }
   };
 
   return (
     <div>
       <div className="container">
-        
-        <Navbar></Navbar>
-        
-        {/* Left Side (Images) */}
-        {/* <div className="image-container">
-          <img src={controllerImage} alt="Controller" className="controller-img" />
-          <img src={o_login} alt="Login" className="login-img" />
-        </div> */}
-        {/* Right Side (Form Container) */}
+        <Navbar />
         <div className="form-container">
           <div className="form login" id="login-form">
             <h2 className="lr-heading">Login</h2>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            {success && <p style={{ color: "green" }}>{success}</p>}
             <form onSubmit={handleLogin}>
               <input
                 type="email"
@@ -66,7 +66,7 @@ const Login = () => {
                 <button type="submit" className="lr-button">
                   Login with Email
                 </button>
-                <button onClick={handleGoogleLogin} className="lr-button">
+                <button type="button" onClick={handleGoogleLogin} className="lr-button">
                   Login with Google
                 </button>
               </div>

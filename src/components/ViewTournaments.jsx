@@ -3,11 +3,10 @@ import { collection, getDocs, addDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../AuthContext";
 
-const ViewTournaments = () =>
-{
+const ViewTournaments = () => {
   const { user } = useAuth(); // Get authenticated user
   const [tournaments, setTournaments] = useState([]);
-  const [ error, setError ] = useState( "" );
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
@@ -29,8 +28,7 @@ const ViewTournaments = () =>
     fetchTournaments();
   }, []);
 
-  const handleRegister = async ( tournamentId ) =>
-  {
+  const handleRegister = async (tournamentId) => {
     if (!user) {
       setError("You must be logged in to register for tournaments.");
       return;
