@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { auth, googleProvider } from "../firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -37,6 +38,9 @@ const Signup = () => {
 
   return (
     <div className="container">
+      
+      <Navbar></Navbar>
+
       {/* Assuming you are using the same CSS classes */}
       {/* <div className="image-container">
           <img src="controller.png" alt="Controller" className="controller-img" />

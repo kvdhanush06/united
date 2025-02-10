@@ -9,7 +9,7 @@ html,body {
     overflow-x: hidden;
     padding: 0;
 }
- 
+
 .container {
     font-family: sans-serif;
 }
@@ -29,6 +29,9 @@ html,body {
 }
  
 .nav-left {
+    display: flex;
+    height: 50%;
+    margin: 1rem solid black;
     background-image: linear-gradient(to right,rgb(247, 43, 77),#4d4dfce4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

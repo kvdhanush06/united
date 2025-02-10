@@ -1,18 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 export default function HomePage() {
   return (
     <div className="container">
-      <nav className="navbar">
-        <div className="nav-left">
-          <span>UNI</span>TED
-        </div>
-        <div className="nav-right">
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      </nav>
+      
+      <Navbar></Navbar>
 
       <main className="main" id="main_section">
         <h1 className="main_h1">Unleash the Ultimate <br /> Tournament Experience</h1>
@@ -33,19 +27,19 @@ export default function HomePage() {
         <div className="all-games">
           <div className="free_fire">
             <img className="ff-image" src="freefire.jpg" alt="" />
-            <button className="ff-button">know more &#8594</button>
+            <button className="ff-button">Know More➡️</button>
           </div>
           <div className="valorant">
             <img className="valorant-image" src="valorant.jpg" alt="" />
-            <button className="valorant-button">know more &#8594</button>
+            <button className="valorant-button">Know More➡️</button>
           </div>
           <div className="elden-ring">
             <img className="elden-ring-image" src="witcher.jpg" alt="" />
-            <button className="elden-ring-button">know more &#8594</button>
+            <button className="elden-ring-button">Know More➡️</button>
           </div>
           <div className="witcher">
             <img className="witcher-image" src="eldenring.jpg" alt="" />
-            <button className="witcher-button">know more &#8594</button>
+            <button className="witcher-button">Know More➡️</button>
           </div>
         </div>
       </div>
