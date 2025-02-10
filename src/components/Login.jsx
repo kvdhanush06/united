@@ -34,6 +34,54 @@ const Login = () => {
   };
 
   return (
+    // <div>
+    //   <div className="container">
+    //     <Navbar />
+    //     <div className="form-container">
+    //       <div className="form login" id="login-form">
+    //         <h2 className="lr-heading">Login</h2>
+    //         {error && <p style={{ color: "red" }}>{error}</p>}
+    //         {success && <p style={{ color: "green" }}>{success}</p>}
+    //         <form onSubmit={handleLogin}>
+    //           <input
+    //             type="email"
+    //             autoFocus
+    //             placeholder="Enter your email"
+    //             value={email}
+    //             onChange={(e) => setEmail(e.target.value)}
+    //             required
+    //           />
+    //           <br />
+    //           <br />
+    //           <input
+    //             type="password"
+    //             placeholder="Enter your password"
+    //             value={password}
+    //             onChange={(e) => setPassword(e.target.value)}
+    //             required
+    //           />
+    //           <br />
+    //           <br />
+    //           <div id="login-btn-wrapper">
+    //             <button type="submit" className="lr-button">
+    //               Login with Email
+    //             </button>
+    //             <button type="button" onClick={handleGoogleLogin} className="lr-button">
+    //               Login with Google
+    //             </button>
+    //           </div>
+    //         </form>
+    //         <p className="lr-changing">
+    //           Don't have an account?{" "}
+    //           <Link to="/signup" className="toggle-btn">
+    //             Register
+    //           </Link>
+    //         </p>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
     <div>
       <div className="container">
         <Navbar />

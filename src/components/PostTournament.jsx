@@ -3,6 +3,7 @@ import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const PostTournament = () => {
   const { user } = useAuth();
@@ -100,65 +101,136 @@ const PostTournament = () => {
   };
 
   return (
-    <div>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {success && <p style={{ color: "green" }}>{success}</p>}
-      {loading && <p>Loading...</p>}
-      <input
-        type="text"
-        placeholder="Tournament Name"
-        value={tournamentName}
-        onChange={(e) => setTournamentName(e.target.value)}
-      />
-      <textarea
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Game"
-        value={gameName}
-        onChange={(e) => setGameName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Max Participants"
-        value={maxParticipants}
-        onChange={(e) => setMaxParticipants(e.target.value)}
-      />
-      <input
-        type="datetime-local"
-        placeholder="Tournament Time"
-        value={tournamentTime}
-        onChange={(e) => setTournamentTime(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Tournament Type"
-        value={tournamentType}
-        onChange={(e) => setTournamentType(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Prize Pool"
-        value={prizePool}
-        onChange={(e) => setPrizePool(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Entry Fee"
-        value={entryFee}
-        onChange={(e) => setEntryFee(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Tournament Location"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-      />
-      <button onClick={handleSubmit} disabled={loading}>Post Tournament</button>
-      <button onClick={handleReset} disabled={loading}>Reset</button>
+    <div className="post-tournament-wrapper">
+      <Navbar></Navbar>
+    <div className="tournament-section">
+      <div className="tournament-container">
+        <h2 className="tournament-title">
+          Create Tournament
+        </h2>
+        
+        {error && <p className="tournament-message error">{error}</p>}
+        {success && <p className="tournament-message success">{success}</p>}
+        
+        <form className="tournament-form" onSubmit={(e) => e.preventDefault()}>
+          <div className="form-grid">
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Tournament Name"
+                value={tournamentName}
+                onChange={(e) => setTournamentName(e.target.value)}
+                className="form-input"
+                />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Game"
+                value={gameName}
+                onChange={(e) => setGameName(e.target.value)}
+                className="form-input"
+                />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <textarea
+              placeholder="Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="form-textarea"
+              rows={4}
+              />
+          </div>
+
+          <div className="form-grid">
+            <div className="form-group">
+              <input
+                type="number"
+                placeholder="Max Participants"
+                value={maxParticipants}
+                onChange={(e) => setMaxParticipants(e.target.value)}
+                className="form-input"
+                />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="datetime-local"
+                placeholder="Tournament Time"
+                value={tournamentTime}
+                onChange={(e) => setTournamentTime(e.target.value)}
+                className="form-input"
+                />
+            </div>
+          </div>
+
+          <div className="form-grid">
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Tournament Type"
+                value={tournamentType}
+                onChange={(e) => setTournamentType(e.target.value)}
+                className="form-input"
+                />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Tournament Location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="form-input"
+                />
+            </div>
+          </div>
+
+          <div className="form-grid">
+            <div className="form-group">
+              <input
+                type="number"
+                placeholder="Prize Pool"
+                value={prizePool}
+                onChange={(e) => setPrizePool(e.target.value)}
+                className="form-input"
+                />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="number"
+                placeholder="Entry Fee"
+                value={entryFee}
+                onChange={(e) => setEntryFee(e.target.value)}
+                className="form-input"
+                />
+            </div>
+          </div>
+
+          <div className="form-buttons">
+            <button 
+              onClick={handleSubmit} 
+              disabled={loading}
+              className="tournament-button"
+              >
+              {loading && <span className="loader"></span>}
+              Post Tournament
+            </button>
+            <button 
+              onClick={handleReset} 
+              disabled={loading}
+              className="tournament-button-secondary"
+              >
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     </div>
   );
 };

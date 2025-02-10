@@ -64,7 +64,7 @@ const Signup = () => {
             />
             <br />
             <br />
-            <div className="submit-btn-wrapper">
+            <div id="submit-btn-wrapper">
               <button type="submit" className="lr-button">
                 Sign Up with Email
               </button>
